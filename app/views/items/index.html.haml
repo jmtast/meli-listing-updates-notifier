@@ -1,24 +1,28 @@
 !!! 5
 .container
-  .table-responsive
-    %table.table.table-striped.table-hover
-      %tr
-        %td.col-md-2
-          ML-ID
-        %td.col-md-8
-          Title
-        %td.col-md-2
-          Price
-        %td.col-md-2
-          End date
-
-      - @items.each do |item|
+  - if @items.any?
+    .table-responsive
+      %table.table.table-striped.table-hover
         %tr
           %td.col-md-2
-            = link_to(item.meli_id, item.permalink, target: '_blank')
-          %td.col-md-6
-            = item.title
+            ML-ID
+          %td.col-md-8
+            Title
           %td.col-md-2
-            = "$#{item.price}"
+            Price
           %td.col-md-2
-            = item.stop_time
+            End date
+
+        - @items.each do |item|
+          %tr
+            %td.col-md-2
+              = link_to(item.meli_id, item.permalink, target: '_blank')
+            %td.col-md-6
+              = item.title
+            %td.col-md-2
+              = "$#{item.price}"
+            %td.col-md-2
+              = item.stop_time
+  - else
+    .h2.center No results found
+    .h3.center Did you enter your query?

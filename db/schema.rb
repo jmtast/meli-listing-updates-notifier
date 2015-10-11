@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807014348) do
+ActiveRecord::Schema.define(version: 20150812025800) do
 
   create_table "items", force: :cascade do |t|
     t.string  "meli_id",   limit: 255
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150807014348) do
     t.integer "price",     limit: 4
     t.date    "stop_time"
     t.string  "permalink", limit: 255
+    t.string  "thumbnail", limit: 255
   end
 
 end
